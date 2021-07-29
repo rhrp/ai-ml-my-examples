@@ -16,7 +16,7 @@ from mpl_toolkits.mplot3d import proj3d
 param_add_noise=True #add some noise to avoid overlapping 
 
 #load data from a CSV
-csv_animals = pd.read_csv('../datasets/animals.csv', header=0, sep=';')
+csv_animals = pd.read_csv('../../datasets/rhp/animals.csv', header=0, sep=';')
 
 #Select the Data, Target and labels of targets
 X = csv_animals.values[:,[1,2,3,4]]
@@ -33,10 +33,10 @@ target_names = ['Lives out of the water','Lives in the water']
 pca = PCA(n_components=2)
 X_r = pca.fit(X).transform(X)
 
-#add some noise to avoid overlapping   [n,2]
+#add some noise to data in order to avoid overlapping   [n,2]
 if param_add_noise:
     l=len(X_r)
-    X_r=X_r+np.random.randn(l,2)/50
+    X_r=X_r+np.random.randn(l,2)/5
 
 plt.figure()
 colors = ['brown','blue']

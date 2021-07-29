@@ -1,0 +1,9 @@
+embeddings {
+  tensor_name: "fmnist_embedding:0"
+  metadata_path: "/home/rhp/git/ai-ml-my-examples/DeepLearning/TensorFlow1/embeddings_mnist_data_20210602/metadata.tsv"
+  sprite {
+    image_path: "/home/rhp/git/ai-ml-my-examples/DeepLearning/TensorFlow1/embeddings_mnist_data_20210602/sprite.png"
+    single_image_dim: 28
+    single_image_dim: 28
+  }
+}

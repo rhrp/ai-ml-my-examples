@@ -16,14 +16,15 @@ import rhplib.datasets_pandas
 #features_names=['Pregnancies','Glucose','BloodPressure','SkinThickness','Insulin','BMI','DiabetesPedigreeFunction','Age']
 
 # load Pima dataset using pandas
-dataset = pd.read_csv('../datasets/PimaIndiansDiabetesDatabase.csv',delimiter=',',header=0)
+dataset = pd.read_csv('../../datasets/PimaIndiansDiabetesDatabase.csv',delimiter=',',header=0)
 print(dataset.head())
 
 dataset=rhplib.datasets_pandas.clean_pima_indian_diabetes_dataset(dataset)
 
 # split into input (X) and output (y) variables
 X = dataset.values[:,0:8]
-y = dataset.values[:,8]
+y = dataset['Outcome']
+
 features_names = list(dataset.columns.values)
 features_names.remove('Outcome')
 
@@ -40,10 +41,10 @@ from mpl_toolkits.mplot3d import Axes3D
 fig = plt.figure(1, figsize=(8, 6))
 ax = Axes3D(fig, elev=-150, azim=110)
 #Plots X as all X_r values where y=0 in column 0, in column 1 for Y and column 2 for Z
-#Outcome==0
-ax.scatter(X_r[y == 0,0],X_r[y == 0,1],X_r[y==0,2], c='Green',cmap=plt.cm.Set1, edgecolor='k', s=40)
-#Outcome==1
-ax.scatter(X_r[y == 1,0],X_r[y == 1,1],X_r[y==1,2], c='Red',cmap=plt.cm.Set1, edgecolor='k', s=40)
+#Outcome==0 (when y==0)
+ax.scatter(X_r[y == 0,0],X_r[y == 0,1],X_r[y==0,2], c='Green',cmap=plt.cm.Set1, edgecolor='k', s=40,label=target_names[0])
+#Outcome==1 (when y==1)
+ax.scatter(X_r[y == 1,0],X_r[y == 1,1],X_r[y==1,2], c='Red',cmap=plt.cm.Set1, edgecolor='k', s=40,label=target_names[1])
 ax.set_title("PCA of Indian Diabetes dataset")
 ax.set_xlabel("1st eigenvector")
 ax.w_xaxis.set_ticklabels([])
@@ -51,6 +52,7 @@ ax.set_ylabel("2nd eigenvector")
 ax.w_yaxis.set_ticklabels([])
 ax.set_zlabel("3rd eigenvector")
 ax.w_zaxis.set_ticklabels([])
+ax.legend()
 plt.show()
 
 

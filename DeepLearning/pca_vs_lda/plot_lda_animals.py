@@ -13,7 +13,7 @@ import pandas as pd
 import numpy as np
 
 #load data from a CSV
-csv_animals = pd.read_csv('../datasets/animals.csv', header=0, sep=';')
+csv_animals = pd.read_csv('../../datasets/rhp/animals.csv', header=0, sep=';')
 
 #Select the Data, Target and labels of targets
 X = np.asarray(csv_animals.values[:,[1,2,3,4]],dtype=float)

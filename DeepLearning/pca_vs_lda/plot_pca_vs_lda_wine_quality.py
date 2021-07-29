@@ -10,7 +10,7 @@ import numpy
 from mpl_toolkits.mplot3d import Axes3D
 
 # load Winequality dataset using pandas
-dataset = pd.read_csv('../datasets/winequality-red.csv',delimiter=',',header=0)
+dataset = pd.read_csv('../../datasets/winequality-red.csv',delimiter=',',header=0)
 print(dataset.head())
 
 #fixed acidity,volatile acidity,citric acid,residual sugar,chlorides,free sulfur dioxide,total sulfur dioxide,density,pH,sulphates,alcohol,quality

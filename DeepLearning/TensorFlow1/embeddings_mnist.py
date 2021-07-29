@@ -3,8 +3,11 @@
 Created on Fri Sep 28 12:03:21 2018
 @author: seraj
 """
-#RHP: requires Tensorflow 1.14.0
-
+#RHP: requires Tensorflow 1.14.0 to run
+#     conda activate Python_3_6_Tensorflow_1
+#     but only works on TensorBoard 2.4.1
+#     conda activate base
+#     tensorboard --logdir embeddings_mnist_data
 import sys
 import os
 import numpy as np
@@ -19,8 +22,6 @@ from tensorflow.examples.tutorials.mnist import input_data
 
 PATH = os.getcwd()
 
-# LOG_DIR = PATH + '/mnist-tensorboard/log-1'
-LOG_DIR = PATH + '/log-1'
 
 embed_count = 1600
 mnist = input_data.read_data_sets(PATH + "/data/")
@@ -33,7 +34,7 @@ batch_ys.shape[0]
 # x_test.shape[1] # sqrt is the dim of one image that in one row = 28 * 28
 
 # logdir = r'logdir'  # you will need to change this!!!
-logdir = '/tmp/tmp/logs/mnist'  # you will need to change this!!!
+logdir = PATH+'/embeddings_mnist_data_20210602'  # you will need to change this!!!
 # setup the write and embedding tensor
 
 summary_writer = tf.summary.FileWriter(logdir)

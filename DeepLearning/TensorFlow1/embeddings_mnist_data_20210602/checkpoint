@@ -1,2 +1,0 @@
-model_checkpoint_path: "/home/rhp/git/ai-ml-my-examples/DeepLearning/TensorFlow1/embeddings_mnist_data_20210602/model.ckpt"
-all_model_checkpoint_paths: "/home/rhp/git/ai-ml-my-examples/DeepLearning/TensorFlow1/embeddings_mnist_data_20210602/model.ckpt"
